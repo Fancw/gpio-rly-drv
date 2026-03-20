@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>KP165S 數位手冊</title>
+    <title>數位設定手冊</title>
     <style>
         :root { --blue: #00D1FF; --green: #E8F5E9; --dark-green: #2E7D32; }
         body { font-family: sans-serif; display: flex; flex-direction: column; height: 100vh; margin: 0; background: #fff; }
@@ -28,12 +28,13 @@
         /* 步驟2：目錄清單樣式 */
         .func-list { display: flex; flex-direction: column; gap: 12px; width: 90%; margin: 0 auto; padding-bottom: 30px; }
         .func-btn { background: #fff; border: 2px solid #007bff; padding: 15px; border-radius: 10px; text-align: left; font-weight: bold; cursor: pointer; color: #007bff; font-size: 15px; }
-        .hw-btn { border-color: #ff5722; color: #ff5722; } /* 硬體重置功能以不同顏色標示 */
+        .hw-btn { border-color: #ff5722; color: #ff5722; }
 
         /* 程式碼輸入行 */
         .code-line { background: #333; color: white; padding: 15px; border-radius: 8px; font-size: 24px; font-family: monospace; display: flex; justify-content: center; align-items: center; gap: 5px; flex-wrap: wrap; line-height: 1.8; width: 90%; margin: 0 auto; }
         .fixed { color: var(--blue); font-weight: bold; }
-        .input-pw { background: var(--green); color: var(--dark-green); border: none; font-size: 20px; width: 80px; text-align: center; border-radius: 4px; outline: none; padding: 2px 0; }
+        /* 預設寬度加寬至 110px，讓 6 位數完整顯示 */
+        .input-pw { background: var(--green); color: var(--dark-green); border: none; font-size: 20px; width: 110px; text-align: center; border-radius: 4px; outline: none; padding: 2px 0; }
         .input-pw::placeholder { color: #A5D6A7; font-size: 14px; }
 
         /* 動態表格樣式 */
@@ -66,7 +67,7 @@
     <main id="content">
         <div id="homePage" class="page active">
             <h1>KP165S</h1>
-            <p>數位手冊</p>
+            <p>數位設定手冊</p>
             <a href="javascript:void(0)" class="start-btn" onclick="showPage('menuPage')">開始操作</a>
         </div>
 
@@ -145,9 +146,9 @@
             <h3>增加使用者密碼</h3>
             <div class="code-line">
                 <span class="fixed">12#</span>
-                <input type="tel" class="input-pw" placeholder="輸入密碼" oninput="validateInput(this)" style="width: 85px;">
+                <input type="tel" class="input-pw" placeholder="輸入密碼" maxlength="6" oninput="validateInput(this)">
                 <span class="fixed">#</span>
-                <input type="tel" class="input-pw" placeholder="再次輸入" oninput="validateInput(this)" style="width: 85px;">
+                <input type="tel" class="input-pw" placeholder="再次輸入" maxlength="6" oninput="validateInput(this)">
                 <span class="fixed">#</span>
                 <span id="relayDisplay" class="input-pw" style="width: 60px; display: inline-block; pointer-events: none;">1000</span>
                 <span class="fixed">#</span>
@@ -181,9 +182,9 @@
             <h3>單一刪除密碼</h3>
             <div class="code-line">
                 <span class="fixed">13#</span>
-                <input type="tel" class="input-pw" placeholder="刪除密碼" oninput="validateInput(this)">
+                <input type="tel" class="input-pw" placeholder="刪除密碼" maxlength="6" oninput="validateInput(this)">
                 <span class="fixed">#</span>
-                <input type="tel" class="input-pw" placeholder="再次輸入" oninput="validateInput(this)">
+                <input type="tel" class="input-pw" placeholder="再次輸入" maxlength="6" oninput="validateInput(this)">
                 <span class="fixed">#</span>
             </div>
         </div>
@@ -354,7 +355,7 @@
         <div id="wirePage" class="page">
             <a href="javascript:void(0)" onclick="showPage('homePage')" class="back-btn">← 返回首頁</a>
             <h3>接線電路圖</h3>
-            <img src="assets/wiringDiagram.png" alt="接線說明" class="diag-img">
+            <img src="assets/wiringDiagram.jpg" alt="接線說明" class="diag-img">
         </div>
     </main>
 
